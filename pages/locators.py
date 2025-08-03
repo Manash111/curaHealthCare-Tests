@@ -22,3 +22,8 @@ class Locators():
 
     btn_bookAppointment = "//button[@id='btn-book-appointment']"
 
+    #menu
+    menu_toggle = "//a[@id='menu-toggle']"
+
+    #logout
+    link_logout = "//a[normalize-space()='Logout']"

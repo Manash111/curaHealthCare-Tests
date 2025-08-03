@@ -23,3 +23,14 @@ class LoginPage:
         self.wait.until(
             EC.element_to_be_clickable((By.XPATH, Locators.btn_login))
         ).click()
+
+    def logout(self):
+        self.wait.until(EC.url_contains("appointment"))
+
+        menu = self.wait.until(EC.element_to_be_clickable((By.XPATH, Locators.menu_toggle)))
+        menu.click()
+
+        logout_link = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, Locators.link_logout))
+        )
+        logout_link.click()
