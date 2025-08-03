@@ -16,6 +16,7 @@ pipeline {
         stage('Testing......') {
             steps {
                 echo 'Run Robot Tests'
+                bat 'venv\\Scripts\\pip install -e .'
                 bat 'venv\\Scripts\\python tests/test_login.py'
             }
         }
