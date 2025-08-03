@@ -16,12 +16,7 @@ pipeline {
         stage('Testing......') {
             steps {
                 echo 'Run Robot Tests'
-                bat 'venv\\Scripts\\python -d reports tests/test_login.py'
-            }
-        }
-        stage('Archive Reports') {
-            steps {
-                archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+                bat 'venv\\Scripts\\python tests/test_login.py'
             }
         }
     }
