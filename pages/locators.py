@@ -27,3 +27,8 @@ class Locators():
 
     #logout
     link_logout = "//a[normalize-space()='Logout']"
+
+    #history
+    link_history = "//a[normalize-space()='History']"
+
+    no_appointment = "//p[normalize-space()='No appointment.']"

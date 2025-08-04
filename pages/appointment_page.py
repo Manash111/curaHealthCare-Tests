@@ -7,7 +7,7 @@ from pages.locators import Locators
 class Appointment:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 20)
 
     def bookAppointment(self,facility,readmission,healthcare,date,comment):
         facility_field = Select(self.wait.until(
@@ -54,3 +54,15 @@ class Appointment:
         self.wait.until(
             EC.visibility_of_element_located((By.XPATH, Locators.btn_bookAppointment))
         ).click()
+
+    def history(self):
+        self.wait.until(EC.url_contains("appointment"))
+        self.driver.get(f"{Locators.base_url}/history.php#history")
+
+    def no_appointments_message_displayed(self):
+        try:
+            return self.wait.until(
+                EC.visibility_of_element_located(Locators.no_appointment)
+            ).is_displayed()
+        except:
+            return False
