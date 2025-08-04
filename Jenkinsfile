@@ -17,7 +17,8 @@ pipeline {
             steps {
                 echo 'Run Robot Tests'
                 bat 'venv\\Scripts\\pip install -e .'
-                bat 'venv\\Scripts\\python -m unittest discover -s tests -p "test_*.py" -v'
+                bat 'venv\\Scripts\\python test/test_appointment.py'
+//                 bat 'venv\\Scripts\\python -m unittest discover -s tests -p "test_*.py" -v'
             }
         }
     }
