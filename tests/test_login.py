@@ -20,6 +20,7 @@ class TestLogin(unittest.TestCase):
         login_page.driver.get(Locators.url_login)
         login_page.login("John Doe", "ThisIsNotAPassword")
         self.assertIn("Make Appointment", self.driver.page_source)
+        print("TC01")
 
     def test_invalid_login(self):
         self.driver.back()
@@ -28,6 +29,7 @@ class TestLogin(unittest.TestCase):
 
         login_page.login("wrong", "credentials")
         self.assertIn("Login failed", self.driver.page_source)
+        print("TC02")
 
     def test_sql_injection(self):
         login_page = LoginPage(self.driver)
@@ -35,6 +37,7 @@ class TestLogin(unittest.TestCase):
 
         login_page.login("' OR '1'='1", "anything")
         self.assertIn("Login failed", self.driver.page_source)
+        print("TC03")
 
     @classmethod
     def tearDownClass(cls):

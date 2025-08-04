@@ -27,7 +27,13 @@ class TestAppointment(unittest.TestCase):
 
         self.assertIn("Hongkong CURA Healthcare Center", self.driver.page_source)
 
+        print("TC04")
 
+        appointment.history()
+        self.assertFalse(
+            appointment.no_appointments_message_displayed(),
+            "After booking, should NOT see 'No appointment' message"
+        )
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()

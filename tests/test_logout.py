@@ -27,6 +27,8 @@ class TestLogin(unittest.TestCase):
         self.driver.back()
         self.assertIn("We Care About Your Health", self.driver.page_source)
 
+        print("TC-10")
+
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
